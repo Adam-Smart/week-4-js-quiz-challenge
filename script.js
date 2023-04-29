@@ -18,8 +18,7 @@ function startGame(){
 }
 function showQuestion(){
     var question = questions[currentQuestion];
-    document.getElementById('question').textContent = question.title
-    currentQuestion++;
+    document.getElementById('question').textContent = question.title;
         if(currentQuestion >= questions.length) {
             endGame();
             return;
@@ -41,9 +40,16 @@ function showQuestion(){
 
         if(rightAnswer === usersAnswer) {
             showMessage('Correct')
+            console.log (message)
+            console.log(rightAnswer)
+            console.log(usersAnswer)
         } else {
             showMessage('Wrong')
+            console.log (message)
+            console.log(rightAnswer)
+            console.log(usersAnswer)
         }
+        currentQuestion++;
         showQuestion();
     }
 
