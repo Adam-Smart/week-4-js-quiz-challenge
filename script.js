@@ -6,3 +6,12 @@ var summary = document.getElementById('summary')
 
 var playQuiz = document.getElementById('playQuiz')
 
+playQuiz.addEventListener('click', startGame)
+
+function startGame(){
+    console.log('Started')
+    playQuiz.classList.add('hide')
+    welcome.classList.add('hide')
+    quiz.classList.remove('hide')
+    displayQuestion();
+}
