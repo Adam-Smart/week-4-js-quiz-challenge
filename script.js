@@ -24,12 +24,29 @@ function showQuestion(){
             endGame();
             return;
         }
+
+        options.innerHTML = '';
+
         for (var i = 0; i < question.choices.length; i++) {
-            var option = document.createElement('li');
+            var option = document.createElement('button');
             option.textContent = question.choices[i];
             option.onclick= selectAnswer;
             option.classList.add('option')
             options.appendChild(option);
         }
-        
+    }
+    function selectAnswer(e){
+        var rightAnswer = questions[currentQuestion].answer;
+        var usersAnswer = e.target.textContent;
+
+        if(rightAnswer === usersAnswer) {
+            showMessage('Correct')
+        } else {
+            showMessage('Wrong')
+        }
+        showQuestion();
+    }
+
+    function showMessage(msg){
+        message.textContent = msg;
     }
