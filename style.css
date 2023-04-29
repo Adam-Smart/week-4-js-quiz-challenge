@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(20, 20, 94);
+}
+h1 {
+    color: beige;
+    text-align: center;
+}
+button{
+    padding: 10px;
+    margin: 24px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #1159ac;
+    color: white;
+    border-radius: 20px;
+    border-color: rgb(24, 162, 226);
+    border-width: 8px;
+    width: 500px;
+    height: 80px;
+}
+button:hover{
+    border-color: black;
+}
+.container{
+    display: block;
+    margin:80px auto;
+    text-align: center;
+    width: 60vw;
+    height: 60vh;
+    background-color: beige;
+    border-radius: 20px;
+}
+.hide{
+    display: none;
+}
