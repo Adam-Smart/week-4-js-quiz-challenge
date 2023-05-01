@@ -2,7 +2,7 @@ var welcome =document.getElementById('welcome')
 var quiz = document.getElementById('quiz')
 var options = document.getElementById('options')
 var message = document.getElementById('message')
-var summary = document.getElementById('summary')
+var result = document.getElementById('result')
 var currentQuestion = 0
 
 var playQuiz = document.getElementById('playQuiz')
@@ -10,19 +10,17 @@ var playQuiz = document.getElementById('playQuiz')
 playQuiz.addEventListener('click', startGame)
 
 function startGame(){
+    currentQuestion = [0]
     console.log('Started')
     playQuiz.classList.add('hide')
     welcome.classList.add('hide')
     quiz.classList.remove('hide')
+    result.classList.add('hide')
     showQuestion();
 }
 function showQuestion(){
     var question = questions[currentQuestion];
     document.getElementById('question').textContent = question.title;
-        if(currentQuestion >= questions.length) {
-            endGame();
-            return;
-        }
 
         options.innerHTML = '';
 
@@ -50,9 +48,19 @@ function showQuestion(){
             console.log(usersAnswer)
         }
         currentQuestion++;
+        if(currentQuestion >= questions.length) {
+            endGame();
+            return;
+        }
         showQuestion();
     }
 
     function showMessage(msg){
         message.textContent = msg;
     }
+    function endGame(){
+        console.log('Finished')
+        quiz.classList.add('hide')
+        result.classList.remove('hide')
+    }
+    tryAgain.addEventListener('click', startGame)
