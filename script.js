@@ -5,11 +5,27 @@ var message = document.getElementById('message')
 var result = document.getElementById('result')
 var currentQuestion = 0
 
-var playQuiz = document.getElementById('playQuiz')
+var timer = document.getElementById('timer')
 
+var playQuiz = document.getElementById('playQuiz')
+var countDownTimer
 playQuiz.addEventListener('click', startGame)
 
+
+
+
+
 function startGame(){
+    secondsLeft = 75
+    countDownTimer = setInterval(function(){
+        if (secondsLeft > 0){
+            timer.textContent = secondsLeft
+        } else {
+            endGame()
+        }
+        secondsLeft--;
+    }, 1000)
+
     currentQuestion = [0]
     console.log('Started')
     playQuiz.classList.add('hide')
@@ -59,6 +75,8 @@ function showQuestion(){
         message.textContent = msg;
     }
     function endGame(){
+        clearInterval(countDownTimer)
+        timer.textContent = ''
         console.log('Finished')
         quiz.classList.add('hide')
         result.classList.remove('hide')
