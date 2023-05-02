@@ -63,6 +63,7 @@ function showQuestion(){
             console.log (message)
             console.log(rightAnswer)
             console.log(usersAnswer)
+            secondsLeft = secondsLeft + 5
         } else {
             showMessage('Wrong')
             console.log (message)
