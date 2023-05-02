@@ -68,6 +68,7 @@ function showQuestion(){
             console.log (message)
             console.log(rightAnswer)
             console.log(usersAnswer)
+            secondsLeft = secondsLeft -10
         }
         currentQuestion++;
         if(currentQuestion >= questions.length) {
