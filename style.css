@@ -37,5 +37,11 @@ button:hover{
     color: beige;
     font-weight: 100;
     font-size: 100px;
-    text-align: center;
+    text-align:left;
+}
+#score{
+    color: beige;
+    font-weight: 100;
+    font-size: 100px;
+    text-align:right;
 }

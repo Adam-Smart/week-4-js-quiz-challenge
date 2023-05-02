@@ -6,16 +6,21 @@ var result = document.getElementById('result')
 var currentQuestion = 0
 
 var timer = document.getElementById('timer')
+var countDownTimer 
+
+var saveScore = document.getElementById('saveScore')
+saveScore.addEventListener('click', SaveScore)
+var score = 0
 
 var playQuiz = document.getElementById('playQuiz')
-var countDownTimer
 playQuiz.addEventListener('click', startGame)
 
 
-
+var points = document.getElementById('score')
 
 
 function startGame(){
+    score = 0
     secondsLeft = 75
     countDownTimer = setInterval(function(){
         if (secondsLeft > 0){
@@ -54,6 +59,7 @@ function showQuestion(){
 
         if(rightAnswer === usersAnswer) {
             showMessage('Correct')
+            score++
             console.log (message)
             console.log(rightAnswer)
             console.log(usersAnswer)
@@ -75,10 +81,22 @@ function showQuestion(){
         message.textContent = msg;
     }
     function endGame(){
+        console.log(score)
         clearInterval(countDownTimer)
         timer.textContent = ''
         console.log('Finished')
         quiz.classList.add('hide')
         result.classList.remove('hide')
+        summary.textContent = 'Score = '+ score
     }
     tryAgain.addEventListener('click', startGame)
+
+    function SaveScore(e){
+        var player = document.getElementById('player').value
+
+        if(player !== ''){
+            localStorage.setItem(player, score)
+            document.getElementById('player').value = ''
+        }
+
+    }
