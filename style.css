@@ -36,12 +36,6 @@ button:hover{
 #timer{
     color: beige;
     font-weight: 100;
-    font-size: 100px;
-    text-align:left;
-}
-#score{
-    color: beige;
-    font-weight: 100;
-    font-size: 100px;
-    text-align:right;
+    font-size: 80px;
+    text-align:center;
 }
